@@ -1,0 +1,34 @@
+/*
+ArrayList forma parte de java.util, por lo que requiere la instrucción
+import java.util.ArrayList;
+al inicio del archivo.
+ */
+import java.util.ArrayList;
+
+public class noprimitivo {
+    public static void main(String[] args) {
+        // Crear una lista dinámica de cadenas (String)
+        ArrayList<String> vinilos = new ArrayList<>();
+
+        /* Los elementos se añaden dinámicamente sin definir un
+        límite previo. */
+        // 1. Agregar elementos (se van acumulando en orden)
+        vinilos.add("Froot");
+        vinilos.add("Did you know that theres a tunnel under ocean blvd");
+        vinilos.add("Melodrama");
+        vinilos.add("Something beautiful");
+
+        System.out.println("Lista inicial: " + vinilos);
+        System.out.println("Total de vinilos: " + vinilos.size());
+
+        // 2. Eliminar un elemento por índice o por valor
+        vinilos.remove("Something beautiful"); // Remueve "Plátano"
+
+        // 3. Consultar y verificar
+        System.out.println("\nLista después de eliminar: " + vinilos);
+        System.out.println("¿Esta en stock melodrama?: " + vinilos.contains("Melodrama"));
+        System.out.println("Elemento en posición 0: " + vinilos.get(0));
+    }
+}
+
+//arrayprimitivoyno
