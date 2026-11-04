@@ -1,0 +1,18 @@
+public class string {  //el string
+
+    public static void main(String[] args) {
+
+        String nombre = "Andres";
+
+        System.out.println("--- Objeto String ---");
+        System.out.println("Nombre: " + nombre);
+
+        System.out.println("Cantidad de caracteres: " + nombre.length());
+
+        System.out.println("En mayúsculas: " + nombre.toUpperCase());
+
+        System.out.println("En minúsculas: " + nombre.toLowerCase());
+
+        System.out.println("Primera letra: " + nombre.charAt(0));
+    }
+}
