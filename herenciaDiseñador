@@ -1,0 +1,17 @@
+public class programador extends empleado {
+
+    private String lenguaje;
+
+    public programador(String nombre, int edad, double salario, String lenguaje) {
+        super(nombre, edad, salario);
+        this.lenguaje = lenguaje;
+    }
+
+    public void escribirCodigo() {
+        System.out.println(nombre + " está programando en " + lenguaje + ".");
+    }
+
+    public void trabajar() {
+        System.out.println(nombre + " está desarrollando software.");
+    }
+}
