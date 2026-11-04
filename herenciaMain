@@ -1,0 +1,25 @@
+public class main {
+
+    public static void main(String[] args) {
+
+
+        System.out.println("      HERENCIA Y OBJETOS");
+
+
+        programador programador =
+                new programador("Andres", 20, 15000, "Java");
+
+        diseñador diseñador =
+                new diseñador("Maria", 22, 12000, true);
+
+        System.out.println(" ACCIONES DEL PROGRAMADOR ");
+        programador.mostrarInformacion();
+        programador.trabajar();
+        programador.escribirCodigo();
+
+        System.out.println("\nACCIONES DEL DISEÑADOR ");
+        diseñador.mostrarInformacion();
+        diseñador.trabajar();
+        diseñador.crearDiseño();
+    }
+}
