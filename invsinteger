@@ -1,0 +1,25 @@
+public class integerint { //este es el int vs integer
+
+    public static void main(String[] args) {
+
+        int numeroPrimitivo = 50;
+
+        System.out.println("--- Tipo primitivo (int) ---");
+        System.out.println("Valor: " + numeroPrimitivo);
+
+
+
+        Integer numeroObjeto = 50;
+
+        System.out.println("\n--- Objeto (Integer) ---");
+        System.out.println("Valor: " + numeroObjeto);
+
+        String texto = numeroObjeto.toString();
+        System.out.println("Convertido a texto: " + texto);
+
+        int comparacion = numeroObjeto.compareTo(100);
+        System.out.println("¿Es menor que 100?: " + (comparacion < 0));
+
+        System.out.println("Valor máximo permitido: " + Integer.MAX_VALUE);
+    }
+}
