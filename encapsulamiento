@@ -1,0 +1,44 @@
+public class Biblioteca {
+
+    private String nombreLibro;
+    private int ejemplares;
+
+    public Biblioteca(String nombreLibro, int ejemplaresIniciales) {
+        this.nombreLibro = nombreLibro;
+
+        if (ejemplaresIniciales >= 0) {
+            this.ejemplares = ejemplaresIniciales;
+        } else {
+            this.ejemplares = 0;
+        }
+    }
+
+    
+    public String getNombreLibro() {
+        return nombreLibro;
+    }
+
+    public int getEjemplares() {
+        return ejemplares;
+    }
+
+    // Método para agregar ejemplares
+    public void agregarEjemplares(int cantidad) {
+        if (cantidad > 0) {
+            ejemplares += cantidad;
+            System.out.println("Se agregaron ejemplares. Total disponible: " + ejemplares);
+        } else {
+            System.out.println("La cantidad debe ser mayor a cero.");
+        }
+    }
+
+    // Método para prestar ejemplares
+    public void prestarLibro(int cantidad) {
+        if (cantidad > 0 && cantidad <= ejemplares) {
+            ejemplares -= cantidad;
+            System.out.println("Préstamo realizado. Ejemplares restantes: " + ejemplares);
+        } else {
+            System.out.println("No hay suficientes ejemplares disponibles.");
+        }
+    }
+}
