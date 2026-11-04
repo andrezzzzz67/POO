@@ -1,0 +1,17 @@
+public class diseñador extends empleado {
+
+    private boolean usaPhotoshop;
+
+    public diseñador(String nombre, int edad, double salario, boolean usaPhotoshop) {
+        super(nombre, edad, salario);
+        this.usaPhotoshop = usaPhotoshop;
+    }
+
+    public void crearDiseño() {
+        System.out.println(nombre + " está creando un diseño.");
+    }
+
+    public void trabajar() {
+        System.out.println(nombre + " está diseñando contenido visual.");
+    }
+}
