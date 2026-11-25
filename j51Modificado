@@ -1,0 +1,88 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class j51_modificado extends JPanel {
+
+    private int xPrev = -1;
+    private int yPrev = -1;
+
+    private Color colorActual = Color.BLUE;
+
+    public j51_modificado() {
+        setBackground(Color.BLACK);
+
+        MouseAdapter adaptadorRaton = new MouseAdapter() {
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                xPrev = e.getX();
+                yPrev = e.getY();
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                int xActual = e.getX();
+                int yActual = e.getY();
+
+                Graphics g = getGraphics();
+
+                g.setColor(colorActual);
+                g.drawLine(xPrev, yPrev, xActual, yActual);
+
+                xPrev = xActual;
+                yPrev = yActual;
+
+                g.dispose();
+            }
+        };
+
+        addMouseListener(adaptadorRaton);
+        addMouseMotionListener(adaptadorRaton);
+    }
+
+    public void setColorActual(Color nuevoColor) {
+        this.colorActual = nuevoColor;
+    }
+
+    public static void main(String[] args) {
+
+        JFrame ventana = new JFrame("j51_mouseEventColores - Mini Paint con Colores");
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        ventana.setSize(1000, 1000);
+
+        // Fondo suave
+        ventana.getContentPane().setBackground(Color.BLACK);
+
+        ventana.setLayout(new BorderLayout());
+
+        // Lienzo
+        j51_modificado lienzo = new j51_modificado();
+        ventana.add(lienzo, BorderLayout.CENTER);
+
+        // Barra superior
+        JPanel barraColores = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 20));
+
+        // Título solicitado
+        JLabel titulo = new JLabel("j51 modificado");
+        titulo.setFont(new Font("Arial", Font.TRUETYPE_FONT, 40));
+
+        JButton btnAzul = new JButton("Rosa");
+        JButton btnRojo = new JButton("Naranja");
+
+        btnAzul.addActionListener(e -> lienzo.setColorActual(Color.PINK));
+
+        btnRojo.addActionListener(e -> lienzo.setColorActual(Color.ORANGE));
+
+        barraColores.add(titulo);
+        barraColores.add(new JLabel("Color del trazo:"));
+        barraColores.add(btnAzul);
+        barraColores.add(btnRojo);
+
+        ventana.add(barraColores, BorderLayout.SOUTH);
+
+        ventana.setVisible(true);
+    }
+}
