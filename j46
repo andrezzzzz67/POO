@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class j46 {
+
+    private static int contador = 0;
+    private static int contador2 = 0;
+
+    public static void main(String[] args) {
+
+        JFrame ventana = new JFrame("j46_ControlContador - Contador Interactivo");
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setSize(350, 250);
+        ventana.setLayout(new FlowLayout());
+        ventana.setLocationRelativeTo(null);
+
+        // Primer contador
+        JButton btnSumar = new JButton("+ Sumar");
+        JButton btnRestar = new JButton("- Restar");
+        JLabel etiquetaValor = new JLabel("Valor actual: 0");
+
+        // Segundo contador
+        JButton btnSumar2 = new JButton("+ Sumar");
+        JButton btnRestar2 = new JButton("- Restar");
+        JLabel etiquetaValor2 = new JLabel("Valor actual: 0");
+
+        btnSumar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contador++;
+                etiquetaValor.setText("Valor actual: " + contador);
+            }
+        });
+
+        btnRestar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contador--;
+                etiquetaValor.setText("Valor actual: " + contador);
+            }
+        });
+
+        btnSumar2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contador2++;
+                etiquetaValor2.setText("Valor actual: " + contador2);
+            }
+        });
+
+        btnRestar2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contador2--;
+                etiquetaValor2.setText("Valor actual: " + contador2);
+            }
+        });
+
+        ventana.add(btnSumar);
+        ventana.add(btnRestar);
+        ventana.add(etiquetaValor);
+
+        ventana.add(btnSumar2);
+        ventana.add(btnRestar2);
+        ventana.add(etiquetaValor2);
+
+        ventana.setVisible(true);
+    }
+}
