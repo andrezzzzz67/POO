@@ -1,0 +1,67 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class j44 {
+    public static void main(String[] args) {
+        // 1. Creamos la ventana principal
+        JFrame ventana = new JFrame("j44_EventoKey - Eventos de Teclado");
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setSize(400, 250);
+        ventana.setLayout(new FlowLayout());
+        ventana.setLocationRelativeTo(null);
+
+        // 2. Creamos los componentes: un campo de texto y una etiqueta
+        JTextField campoTexto = new JTextField(20);
+        JTextField campoTexto2 = new JTextField(20);
+        JLabel etiqueta = new JLabel("Escribe algo en el campo de texto");
+
+        // -----------------
+        // 3. PROGRAMANDO EL KEYEVENT CON KeyAdapter
+        // -----------------
+        // Conectamos el escuchas de teclado al campo de texto
+        campoTexto.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // Evaluamos qué tecla exacta fue presionada usando su código
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    // Si presionaron la tecla Enter
+                    etiqueta.setText("¡Presionaste ENTER! Texto: " + campoTexto.getText());
+                } else {
+                    // Si presionaron cualquier otra tecla, mostramos cuál fue
+                    String nombreTecla = KeyEvent.getKeyText(e.getKeyCode());
+                    etiqueta.setText("Tecla presionada: " + nombreTecla);
+                }
+            }
+        });
+
+        campoTexto2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // Evaluamos qué tecla exacta fue presionada usando su código
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    // Si presionaron la tecla Enter
+                    etiqueta.setText("ENTER en campo 2: " + campoTexto2.getText());
+                } else {
+                    // Si presionaron cualquier otra tecla, mostramos cuál fue
+                    String nombreTecla = KeyEvent.getKeyText(e.getKeyCode());
+                    etiqueta.setText("Campo 2 - Tecla " + nombreTecla);
+                }
+            }
+        });
+        // 4. Añadimos los elementos a la ventana
+        ventana.add(new JLabel("Escribe aquí:"));
+        ventana.add(campoTexto);
+
+        ventana.add(new JLabel("Segundo campo:"));
+        ventana.add(campoTexto2);
+
+        ventana.add(etiqueta);
+
+        // 5. Hacemos visible la ventana
+        ventana.setVisible(true);
+    }
+
+
+}
